@@ -1,4 +1,4 @@
-package org.example.framework.supports.tools;
+package org.example.framework.tools;
 
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.Select;
