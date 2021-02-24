@@ -28,4 +28,8 @@ public class AuthenticationPageObjects {
         return driver.findElement(By.id("SubmitLogin"));
     }
 
+    public WebElement getProceedToCheckoutButton() {
+        return driver.findElement(By.name("processAddress"));
+    }
+
 }
