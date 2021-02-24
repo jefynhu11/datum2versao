@@ -18,6 +18,8 @@ public class AuthenticationTask {
         validarAuthentication();
         authenticationPageObjects.getEmailTextField().sendKeys(email);
         authenticationPageObjects.getPasswordTextField().sendKeys(password);
+        authenticationPageObjects.getSignInButton().click();
+        authenticationPageObjects.getProceedToCheckoutButton().click();
     }
 
     private void validarAuthentication() {
