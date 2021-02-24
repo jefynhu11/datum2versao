@@ -1,4 +1,4 @@
-package org.example.framework.supports.tools;
+package org.example.framework.tools;
 
 public enum HighLight {
 
