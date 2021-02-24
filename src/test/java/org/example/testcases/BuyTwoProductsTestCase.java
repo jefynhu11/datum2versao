@@ -5,6 +5,7 @@ import org.example.framework.webdrivers.DriverManager;
 import org.example.tasks.AddProductsTask;
 import org.example.tasks.AuthenticationTask;
 import org.example.tasks.PurchaseProductsTask;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
 import org.openqa.selenium.WebDriver;
@@ -20,8 +21,16 @@ public class BuyTwoProductsTestCase extends BaseTest {
     @CsvFileSource(resources = "/dado.csv")
     public void test(String email, String password) throws InterruptedException {
         addProductsTask.adicionaCarrinhoProdutos();
-        authenticationTask.authenticationAccount(email, password);
+        authenticationTask.authenticationAlreadyAccount(email, password);
         purchaseProductsTask.purchaseProducts();
+
+        Thread.sleep(5000);
+    }
+
+    @Test
+    public void test1() throws InterruptedException {
+        addProductsTask.adicionaCarrinhoProdutos();
+        authenticationTask.authenticationCreateAccount();
 
         Thread.sleep(5000);
     }
