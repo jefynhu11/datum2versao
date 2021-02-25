@@ -1,5 +1,6 @@
 package org.example.pageobjetcs;
 
+import org.example.framework.supports.Wait;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -8,9 +9,11 @@ import org.openqa.selenium.support.ui.Select;
 public class AuthenticationPageObjects {
 
     private final WebDriver driver;
+    private final Wait wait;
 
     public AuthenticationPageObjects(WebDriver driver) {
         this.driver = driver;
+        wait = new Wait(driver);
     }
 
     public WebElement getAuthenticationTextLabel() {
@@ -46,6 +49,7 @@ public class AuthenticationPageObjects {
     }
 
     public WebElement getFirstNameTextField() {
+        wait.waitVisibilityElement(By.id("customer_firstname"));
         return driver.findElement(By.id("customer_firstname"));
     }
 
@@ -62,7 +66,7 @@ public class AuthenticationPageObjects {
     }
 
     public Select getYeahSelect() {
-        return new Select(driver.findElement(By.id("yeahs")));
+        return new Select(driver.findElement(By.id("years")));
     }
 
     public WebElement getAddressTextField() {
@@ -91,5 +95,9 @@ public class AuthenticationPageObjects {
 
     public WebElement getAssignAnAddressTextField() {
         return driver.findElement(By.id("alias"));
+    }
+
+    public WebElement getRegisterButton() {
+        return driver.findElement(By.id("submitAccount"));
     }
 }
