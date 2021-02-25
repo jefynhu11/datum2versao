@@ -40,22 +40,24 @@ public class AuthenticationTask {
         authenticationPageObjects.getFirstNameTextField().sendKeys(fakers.getFirstName());
         authenticationPageObjects.getLastNameTextField().sendKeys(fakers.getLastName());
         authenticationPageObjects.getPasswordTextField().sendKeys(fakers.getPassword());
-        authenticationPageObjects.getDaySelect().selectByIndex(3);
-        authenticationPageObjects.getMonthSelect().selectByIndex(11);
-        authenticationPageObjects.getYeahSelect().selectByIndex(1992);
+        authenticationPageObjects.getDaySelect().selectByValue("3");
+        authenticationPageObjects.getMonthSelect().selectByValue("11");
+        authenticationPageObjects.getYeahSelect().selectByValue("1992");
         authenticationPageObjects.getAddressTextField().sendKeys(fakers.getAddress1());
         authenticationPageObjects.getCityTextField().sendKeys(fakers.getCity());
-        authenticationPageObjects.getStateSelect().selectByIndex(2);
+        authenticationPageObjects.getStateSelect().selectByVisibleText("Alaska");
         authenticationPageObjects.getCodeTextField().sendKeys(fakers.getPostalCode());
-        authenticationPageObjects.getCountrySelect().selectByIndex(21);
-        authenticationPageObjects.getMobilePhoneTextField().sendKeys(fakers.getMobilePhone());
+        authenticationPageObjects.getCountrySelect().selectByValue("21");
+        authenticationPageObjects.getMobilePhoneTextField().sendKeys(fakers.getPhone());
+        authenticationPageObjects.getAssignAnAddressTextField().clear();
         authenticationPageObjects.getAssignAnAddressTextField().sendKeys(fakers.getEmailReference());
+        authenticationPageObjects.getRegisterButton().click();
+        authenticationPageObjects.getProceedToCheckoutButton().click();
 
     }
 
     private void validarCreateAccount() {
-//        wait.waitVisibilityElement();
-//        wait.waitLoadElement(authenticationPageObjects.getCreateAnAccountTextLabel());
+        wait.waitLoadElement(authenticationPageObjects.getCreateAnAccountTextLabel());
         Assertions.assertEquals("AUTHENTICATION", authenticationPageObjects.getCreateAnAccountTextLabel().getText());
     }
 
