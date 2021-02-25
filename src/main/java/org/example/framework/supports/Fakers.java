@@ -59,7 +59,7 @@ public class Fakers {
     }
 
     public String getPostalCode() {
-        postalCode = faker.address().zipCode();
+        postalCode = faker.number().digits(5);
         return postalCode;
     }
 
