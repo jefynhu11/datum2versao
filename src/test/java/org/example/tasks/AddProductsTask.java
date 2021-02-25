@@ -19,10 +19,8 @@ public class AddProductsTask {
     }
 
     public void adicionaCarrinhoProdutos() {
-        JsExecutor.highLightElement(driver,addProductsPageObjects.getBlouseProductButton());
         addProductsPageObjects.getBlouseProductButton().click();
         addProductsPageObjects.getIframe();
-        JsExecutor.highLightElement(driver, addProductsPageObjects.getAddToCartButton());
         addProductsPageObjects.getAddToCartButton().click();
         addProductsPageObjects.getIframeContinueShoppingButton().click();
         addProductsPageObjects.getIframeDefalut();
