@@ -19,20 +19,17 @@ public class BuyTwoProductsTestCase extends BaseTest {
 
     @ParameterizedTest
     @CsvFileSource(resources = "/dado.csv")
-    public void test(String email, String password) throws InterruptedException {
+    public void test(String email, String password) {
         addProductsTask.adicionaCarrinhoProdutos();
         authenticationTask.authenticationAlreadyAccount(email, password);
         purchaseProductsTask.purchaseProducts();
-
-        Thread.sleep(5000);
     }
 
     @Test
-    public void test1() throws InterruptedException {
+    public void test1() {
         addProductsTask.adicionaCarrinhoProdutos();
         authenticationTask.authenticationCreateAccount();
-
-        Thread.sleep(5000);
+        purchaseProductsTask.purchaseProducts();
     }
 
 }
