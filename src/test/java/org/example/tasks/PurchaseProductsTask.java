@@ -1,5 +1,6 @@
 package org.example.tasks;
 
+import org.example.framework.tools.JsExecutor;
 import org.example.pageobjetcs.PurchaseProductsPageObjects;
 import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.WebDriver;
@@ -16,14 +17,14 @@ public class PurchaseProductsTask {
 
     public void purchaseProducts() {
         validarShipping();
-        purchaseProductsPageObjects.getTermsOfServiceCheckBox().click();
-        purchaseProductsPageObjects.getProceedToCheckoutButton().click();
+        JsExecutor.highLightElementWithClick(driver, purchaseProductsPageObjects.getTermsOfServiceCheckBox());
+        JsExecutor.highLightElementWithClick(driver,purchaseProductsPageObjects.getProceedToCheckoutButton());
         validarPaymentMethod();
-        purchaseProductsPageObjects.getPayByBankWireButton().click();
+        JsExecutor.highLightElementWithClick(driver,purchaseProductsPageObjects.getPayByBankWireButton());
         validarBankWirePayment();
-        purchaseProductsPageObjects.getIConfirmMyOrderButton().click();
+        JsExecutor.highLightElementWithClick(driver,purchaseProductsPageObjects.getIConfirmMyOrderButton());
         validarConfirmation();
-        purchaseProductsPageObjects.getSignOutButton().click();
+        JsExecutor.highLightElementWithClick(driver,purchaseProductsPageObjects.getSignOutButton());
     }
 
     private void validarConfirmation() {
