@@ -19,18 +19,18 @@ public class AddProductsTask {
     }
 
     public void adicionaCarrinhoProdutos() {
-        addProductsPageObjects.getBlouseProductButton().click();
+        JsExecutor.highLightElementWithClick(driver, addProductsPageObjects.getBlouseProductButton());
         addProductsPageObjects.getIframe();
-        addProductsPageObjects.getAddToCartButton().click();
-        addProductsPageObjects.getIframeContinueShoppingButton().click();
+        JsExecutor.highLightElementWithClick(driver, addProductsPageObjects.getAddToCartButton());
+        JsExecutor.highLightElementWithClick(driver, addProductsPageObjects.getIframeContinueShoppingButton());
         addProductsPageObjects.getIframeDefalut();
-        addProductsPageObjects.getFadedProductButton().click();
+        JsExecutor.highLightElementWithClick(driver, addProductsPageObjects.getFadedProductButton());
         addProductsPageObjects.getIframe();
-        addProductsPageObjects.getAddToCartButton().click();
-        addProductsPageObjects.getIframeProceedToCheckoutButton().click();
+        JsExecutor.highLightElementWithClick(driver, addProductsPageObjects.getAddToCartButton());
+        JsExecutor.highLightElementWithClick(driver, addProductsPageObjects.getIframeProceedToCheckoutButton());
         validarPage();
         validarValue();
-        addProductsPageObjects.getProceedToCheckoutButton().click();
+        JsExecutor.highLightElementWithClick(driver, addProductsPageObjects.getProceedToCheckoutButton());
     }
 
     private void validarValue() {
