@@ -2,6 +2,7 @@ package org.example.tasks;
 
 import org.example.framework.supports.Fakers;
 import org.example.framework.supports.Wait;
+import org.example.framework.tools.JsExecutor;
 import org.example.pageobjetcs.AuthenticationPageObjects;
 import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.WebDriver;
@@ -37,23 +38,27 @@ public class AuthenticationTask {
 
     private void cadastrarDado() {
         validarCreateAccount();
-        authenticationPageObjects.getFirstNameTextField().sendKeys(fakers.getFirstName());
-        authenticationPageObjects.getLastNameTextField().sendKeys(fakers.getLastName());
-        authenticationPageObjects.getPasswordTextField().sendKeys(fakers.getPassword());
+        JsExecutor.highLightElementWithSend(driver, authenticationPageObjects.getFirstNameTextField(), fakers.getFirstName());
+        JsExecutor.highLightElementWithSend(driver, authenticationPageObjects.getLastNameTextField(), fakers.getLastName());
+        JsExecutor.highLightElementWithSend(driver, authenticationPageObjects.getPasswordTextField(), fakers.getPassword());
+        JsExecutor.highLightSelect(driver, authenticationPageObjects.getDaySelect());
         authenticationPageObjects.getDaySelect().selectByValue("3");
+        JsExecutor.highLightSelect(driver, authenticationPageObjects.getMonthSelect());
         authenticationPageObjects.getMonthSelect().selectByValue("11");
+        JsExecutor.highLightSelect(driver, authenticationPageObjects.getYeahSelect());
         authenticationPageObjects.getYeahSelect().selectByValue("1992");
-        authenticationPageObjects.getAddressTextField().sendKeys(fakers.getAddress1());
-        authenticationPageObjects.getCityTextField().sendKeys(fakers.getCity());
+        JsExecutor.highLightElementWithSend(driver, authenticationPageObjects.getAddressTextField(), fakers.getAddress1());
+        JsExecutor.highLightElementWithSend(driver, authenticationPageObjects.getCityTextField(), fakers.getCity());
+        JsExecutor.highLightSelect(driver, authenticationPageObjects.getStateSelect());
         authenticationPageObjects.getStateSelect().selectByVisibleText("Alaska");
-        authenticationPageObjects.getCodeTextField().sendKeys(fakers.getPostalCode());
+        JsExecutor.highLightElementWithSend(driver, authenticationPageObjects.getCodeTextField(), fakers.getPostalCode());
+        JsExecutor.highLightSelect(driver, authenticationPageObjects.getCountrySelect());
         authenticationPageObjects.getCountrySelect().selectByValue("21");
-        authenticationPageObjects.getMobilePhoneTextField().sendKeys(fakers.getPhone());
+        JsExecutor.highLightElementWithSend(driver, authenticationPageObjects.getMobilePhoneTextField(), fakers.getPhone());
         authenticationPageObjects.getAssignAnAddressTextField().clear();
-        authenticationPageObjects.getAssignAnAddressTextField().sendKeys(fakers.getEmailReference());
-        authenticationPageObjects.getRegisterButton().click();
-        authenticationPageObjects.getProceedToCheckoutButton().click();
-
+        JsExecutor.highLightElementWithSend(driver, authenticationPageObjects.getAssignAnAddressTextField(), fakers.getEmailReference());
+        JsExecutor.highLightElementWithClick(driver, authenticationPageObjects.getRegisterButton());
+        JsExecutor.highLightElementWithClick(driver, authenticationPageObjects.getProceedToCheckoutButton());
     }
 
     private void validarCreateAccount() {
@@ -62,8 +67,8 @@ public class AuthenticationTask {
     }
 
     private void criarEmailConta() {
-        authenticationPageObjects.getCreateEmailTextField().sendKeys(fakers.getEmail());
-        authenticationPageObjects.getCreateAnAccountButton().click();
+        JsExecutor.highLightElementWithSend(driver, authenticationPageObjects.getCreateEmailTextField(), fakers.getEmail());
+        JsExecutor.highLightElementWithClick(driver, authenticationPageObjects.getCreateAnAccountButton());
     }
 
     private void validarAuthentication() {
