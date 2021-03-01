@@ -13,6 +13,16 @@ public class JsExecutor {
         scriptSelect(driver, select, HighLight.RED.getArgument());
     }
 
+    public static void highLightElementWithSend(WebDriver driver, WebElement element, String value){
+        scriptElement(driver, element, HighLight.RED.getArgument());
+        element.sendKeys(value);
+    }
+
+    public static void highLightElementWithClick(WebDriver driver, WebElement element){
+        scriptElement(driver, element, HighLight.RED.getArgument());
+        element.click();
+    }
+
     private static void scriptElement(WebDriver driver, WebElement element, String script){
         try {
             if (driver instanceof JavascriptExecutor){
