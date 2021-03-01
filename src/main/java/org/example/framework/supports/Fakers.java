@@ -5,10 +5,10 @@ import com.github.javafaker.Faker;
 public class Fakers {
 
     private Faker faker = new Faker();
-    private String email, emailReference, password;
-    private String firstName, lastName;
-    private String company, address1, address2, city, postalCode;
-    private String phone, mobilePhone;
+    private String email, emailReference, password,
+            firstName, lastName,
+            company, address1, address2, city, postalCode,
+            phone, mobilePhone;
 
     public Fakers() {
     }
