@@ -25,11 +25,4 @@ public class BuyTwoProductsTestCase extends BaseTest {
         purchaseProductsTask.purchaseProducts();
     }
 
-    @Test
-    public void test1() {
-        addProductsTask.adicionaCarrinhoProdutos();
-        authenticationTask.authenticationCreateAccount();
-        purchaseProductsTask.purchaseProducts();
-    }
-
 }
